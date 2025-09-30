@@ -8,8 +8,12 @@ import net.minecraft.network.chat.Component;
 
 import net.neoforged.neoforge.common.NeoForge;
 
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 
+import static com.takanashi.takanashimod.AllBlocks.NIANIA_BLOCK_ITEM;
+import static com.takanashi.takanashimod.AllItems.NIANIA_INGOT_ITEM;
+import static com.takanashi.takanashimod.AllTabs.MAIN_TAB;
 
 
 @Mod(TakanashiMod.MOD_ID) //主类
@@ -27,6 +31,8 @@ public class TakanashiMod {
         AllBlocks.register();
         Register.register(modEventBus);
         modEventBus.addListener(Register::onGatherData);
+        AllTabs.register();
+        modEventBus.addListener(TakanashiMod::buildCreativeTabContent);
 
     }
 
@@ -40,6 +46,12 @@ public class TakanashiMod {
             var ironIngot = Component.translatable("item.minecraft.iron_ingot");
             player.sendSystemMessage(Component.literal("16 x ").append(ironBars).append(" <= 6 x ").append(ironIngot));
             player.sendSystemMessage(Component.literal("welcome to takanashi's world"));
+        }
+    }
+    public static void buildCreativeTabContent(BuildCreativeModeTabContentsEvent event) {
+        if (event.getTab() == MAIN_TAB.get()) {
+            event.accept(NIANIA_INGOT_ITEM.get());
+            event.accept(NIANIA_BLOCK_ITEM.get());
         }
     }
 }

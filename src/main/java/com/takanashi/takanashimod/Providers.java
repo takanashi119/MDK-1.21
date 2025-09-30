@@ -37,6 +37,9 @@ import org.jetbrains.annotations.Nullable;
 
 import static com.takanashi.takanashimod.Register.BLOCKS;
 
+/* Provider 类在runData后自动生成相应的配置
+*
+* */
 
 public class Providers {
 
@@ -112,7 +115,7 @@ public class Providers {
         protected void generate() {
             this.dropSelf(AllBlocks.NIANIA_BLOCK.get());
         /*
-        // 如欲在非精准采集的情况下掉落九个 xiaozhong:sulfur_dust，请使用以下代码：
+        // 如欲在非精准采集的情况下掉落九个 xiaozhong: sulfur_dust，请使用以下代码：
         this.add(SULFUR_BLOCK.get(), block -> createSingleItemTableWithSilkTouch(block, SULFUR_DUST_ITEM.get(), ConstantValue.exactly(9f)));
         */
         }
@@ -127,6 +130,7 @@ public class Providers {
         public tagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, String modId, @Nullable ExistingFileHelper existingFileHelper) {
             super(output, lookupProvider, modId, existingFileHelper);
         }
+
 
         @Override
         protected void addTags(HolderLookup.Provider provider){

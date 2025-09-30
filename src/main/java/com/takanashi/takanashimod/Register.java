@@ -1,6 +1,7 @@
 package com.takanashi.takanashimod;
 
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.functions.LootItemFunctionType;
@@ -16,10 +17,15 @@ public class Register {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.Items.createItems(MOD_ID);
     public static final DeferredRegister<LootItemFunctionType<?>> LOOT_FUNCTION_TYPES =
             DeferredRegister.create(Registries.LOOT_FUNCTION_TYPE, TakanashiMod.MOD_ID);
+    public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB,"takanashimod");
 
+
+
+    //将所有延迟注册*deferred register 绑定到事件总线上
     public static void register(IEventBus modEventBus) {
         ITEMS.register(modEventBus);
         BLOCKS.register(modEventBus);
+        TABS.register(modEventBus);
     }
     public static void onGatherData(GatherDataEvent event){
         var gen = event.getGenerator();

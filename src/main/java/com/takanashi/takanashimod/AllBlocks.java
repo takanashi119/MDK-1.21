@@ -14,7 +14,8 @@ import static com.takanashi.takanashimod.Register.ITEMS;
 import static com.takanashi.takanashimod.TakanashiMod.MOD_ID;
 
 
-public class AllBlocks {
+public class
+AllBlocks {
     public static final DeferredHolder<Block,Block> NIANIA_BLOCK;
     public static final DeferredHolder<Item, BlockItem>NIANIA_BLOCK_ITEM;
 
@@ -26,6 +27,7 @@ public class AllBlocks {
 //                new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK)));
         NIANIA_BLOCK_ITEM = ITEMS.register(NIANIA_BLOCK_ID,()->new BlockItem(NIANIA_BLOCK.get(),new Item.Properties()));
     }
+
 
     public static void register(){
 
