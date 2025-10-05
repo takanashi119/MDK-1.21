@@ -36,6 +36,7 @@ import com.takanashi.takanashimod.AllItems;
 import org.jetbrains.annotations.Nullable;
 
 import static com.takanashi.takanashimod.Register.BLOCKS;
+import static com.takanashi.takanashimod.TakanashiMod.MOD_ID;
 
 /* Provider 类在runData后自动生成相应的配置
 *
@@ -48,8 +49,10 @@ public class Providers {
         public EnglishLanguageProvider(PackOutput gen){
             super(gen, TakanashiMod.MOD_ID, "en_us");
         }
-        protected void addTranslations() {
+        protected void addTranslations()
+        {
             this.add(AllItems.NIANIA_INGOT_ITEM.get(),"Niania Ingot");
+            this.add("ItemGroups."+MOD_ID+".niania_tabs","Niania Group");
         }
     }
 
@@ -62,6 +65,7 @@ public class Providers {
         protected void addTranslations() {
             this.add(AllItems.NIANIA_INGOT_ITEM.get(),"喵喵锭");
             this.add(AllBlocks.NIANIA_BLOCK_ITEM.get(),"喵喵块");
+            this.add("ItemGroups."+MOD_ID+".niania_tabs","喵喵类");
         }
     }
 

@@ -28,7 +28,7 @@ public class AllItems {
     //储存着游戏元素的实例——该实例可通过 get 方法获得。建议将物品和方块对应的 DeferredHolder 以静态字段的方式声明。
     public static final DeferredHolder<Item, Item> NIANIA_INGOT_ITEM;
 
-    //静态实例化（注册）
+    //静态块：当本类的register被调用时，本类被JVM加载，优先执行静态块中的代码
     static {
         NIANIA_INGOT_ITEM = ITEMS.register(NIANIA_INGOT_ID, () -> new Item(new Item.Properties()));
     }
