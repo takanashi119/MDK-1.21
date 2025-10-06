@@ -12,6 +12,7 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 
 import static com.takanashi.takanashimod.AllBlocks.NIANIA_BLOCK_ITEM;
+import static com.takanashi.takanashimod.AllBlocks.NIANIA_CHEST_ITEM;
 import static com.takanashi.takanashimod.AllItems.NIANIA_INGOT_ITEM;
 import static com.takanashi.takanashimod.AllTabs.MAIN_TAB;
 
@@ -29,14 +30,13 @@ public class TakanashiMod {
         Register.init();
         AllItems.register();
         AllBlocks.register();
+        AllEntities.register();
         Register.register(modEventBus);
         modEventBus.addListener(Register::onGatherData);
         AllTabs.register();
         modEventBus.addListener(TakanashiMod::buildCreativeTabContent);
 
     }
-
-
 
 
     public static class PlayerLoggedInHandler{
@@ -48,10 +48,12 @@ public class TakanashiMod {
             player.sendSystemMessage(Component.literal("welcome to takanashi's world"));
         }
     }
+
     public static void buildCreativeTabContent(BuildCreativeModeTabContentsEvent event) {
         if (event.getTab() == MAIN_TAB.get()) {
             event.accept(NIANIA_INGOT_ITEM.get());
             event.accept(NIANIA_BLOCK_ITEM.get());
+            event.accept(NIANIA_CHEST_ITEM.get());
         }
     }
 }

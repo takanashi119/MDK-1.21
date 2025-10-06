@@ -14,18 +14,21 @@ import static com.takanashi.takanashimod.Register.ITEMS;
 import static com.takanashi.takanashimod.TakanashiMod.MOD_ID;
 
 
-public class
-AllBlocks {
+public class AllBlocks {
     public static final DeferredHolder<Block,Block> NIANIA_BLOCK;
-    public static final DeferredHolder<Item, BlockItem>NIANIA_BLOCK_ITEM;
+    public static final DeferredHolder<Item,BlockItem>NIANIA_BLOCK_ITEM;
+    public static final DeferredHolder<Block,Block> NIANIA_CHEST;
+    public static final DeferredHolder<Item,BlockItem>NIANIA_CHEST_ITEM;
 
     public static final String NIANIA_BLOCK_ID = "niania_block";
+    public static final String NIANIA_CHEST_ID = "niania_chest";
     static {
         NIANIA_BLOCK = BLOCKS.register(NIANIA_BLOCK_ID,()->
                 new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).requiresCorrectToolForDrops().strength(2F,1.5F)));
-//        NIANIA_BLOCK = BLOCKS.register(NIANIA_BLOCK_ID,()->
-//                new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK)));
+        NIANIA_CHEST = BLOCKS.register(NIANIA_CHEST_ID,()->
+                new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CHEST)));
         NIANIA_BLOCK_ITEM = ITEMS.register(NIANIA_BLOCK_ID,()->new BlockItem(NIANIA_BLOCK.get(),new Item.Properties()));
+        NIANIA_CHEST_ITEM = ITEMS.register(NIANIA_CHEST_ID,()->new BlockItem(NIANIA_CHEST.get(),new Item.Properties()));
     }
 
 
